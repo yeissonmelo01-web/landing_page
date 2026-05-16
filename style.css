@@ -1,0 +1,42 @@
+/* ==========================================================================
+   DESIGN TOKENS & VARIABLES GLOBALES (E3.3)
+   ========================================================================== */
+:root {
+    /* Paleta de Colores (Identidad de Seguridad Corporativa) */
+    --color-primary: #0f172a;       /* Azul Pizarra Oscuro (Confianza y Estabilidad) */
+    --color-secondary: #2563eb;     /* Azul Tecnológico (Modernidad y Conectividad) */
+    --color-accent: #f97316;        /* Naranja de Seguridad (Llamadas a la acción / Alerta) */
+    --color-bg-light: #f8fafc;      /* Fondo Claro para secciones limpias */
+    --color-text-dark: #1e293b;     /* Texto Principal de alta legibilidad */
+    --color-text-light: #ffffff;    /* Texto Secundario para fondos oscuros */
+
+    /* Tipografía y Fuentes */
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* Espaciados y Layout (Consistencia Visual) */
+    --space-sm: 0.5rem;             /* 8px */
+    --space-md: 1rem;               /* 16px */
+    --space-lg: 2rem;               /* 32px */
+    --border-radius: 8px;           /* Curvatura estándar para botones y tarjetas */
+}
+
+/* ==========================================================================
+   RESET & ESTILOS BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}

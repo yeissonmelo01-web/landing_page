@@ -13,7 +13,6 @@
             <div class="logo">🔒 SecureCam</div>
             <ul class="nav-links">
                 <li><a href="#planes">Kits y Planes</a></li>
-                <li><a href="#faq">Preguntas Frecuentes</a></li>
                 <li><a href="#contacto" class="btn-nav">Cotizar Ahora</a></li>
             </ul>
         </nav>
@@ -23,11 +22,64 @@
         <section class="hero">
             <div class="hero-content">
                 <h1>Protege lo que más importa con Monitoreo Inteligente</h1>
-                <p>Instalación profesional de sistemas de cámaras de seguridad CCTV e IP para hogares y empresas. Vigilancia en tiempo real desde tu celular.</p>
+                <p>Instalación profesional de sistemas de cámaras de seguridad CCTV e IP para hogares y empresas.</p>
                 <div class="hero-actions">
                     <a href="#contacto" class="btn-primary">Solicitar Cotización Gratis</a>
-                    <a href="#planes" class="btn-secondary">Ver Kits Disponibles</a>
                 </div>
+            </div>
+        </section>
+
+        <section id="planes" class="planes-section">
+            <h2>Nuestros Kits de Seguridad Disponibles</h2>
+            <div class="planes-container">
+                <div class="plan-card">
+                    <h3>Kit Hogar Seguro</h3>
+                    <p class="price">Desde $350.000</p>
+                    <ul>
+                        <li>2 Cámaras Full HD Internas/Externas</li>
+                        <li>Grabador DVR con 1TB de almacenamiento</li>
+                        <li>Configuración en Celular y Monitoreo en Vivo</li>
+                    </ul>
+                </div>
+                <div class="plan-card highlight">
+                    <h3>Kit Negocio Protegido</h3>
+                    <p class="price">Desde $650.000</p>
+                    <ul>
+                        <li>4 Cámaras IP de Alta Resolución (Visión Nocturna)</li>
+                        <li>Grabador NVR con 2TB de almacenamiento</li>
+                        <li>Alertas de movimiento inteligentes al celular</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contacto-section">
+            <div class="form-container">
+                <h2>Solicita tu Cotización Personalizada</h2>
+                <p>Déjanos tus datos y un asesor técnico te contactará para agendar una visita técnica sin costo.</p>
+                
+                <div id="mensaje-exito" class="hidden"></div>
+
+                <form id="form-cotizacion">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo:</label>
+                        <input type="text" id="nombre" name="nombre" required placeholder="Ej. Yeison Melo">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono de Contacto:</label>
+                        <input type="tel" id="telefono" name="telefono" required placeholder="Ej. 3101234567">
+                    </div>
+                    <div class="form-group">
+                        <label for="plan-interes">Kit de Interés:</label>
+                        <select id="plan-interes" name="plan-interes" required>
+                            <option value="">-- Selecciona una opción --</option>
+                            <option value="hogar">Kit Hogar Seguro (2 Cámaras)</option>
+                            <option value="negocio">Kit Negocio Protegido (4 Cámaras)</option>
+                            <option value="personalizado">Proyecto a Medida / Más Cámaras</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-submit">Enviar Solicitud de Cotización</button>
+                </form>
             </div>
         </section>
     </main>

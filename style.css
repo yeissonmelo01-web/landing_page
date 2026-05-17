@@ -1,15 +1,63 @@
 /* ==========================================================================
-   ESTILOS DE COMPONENTES & LAYOUT REPSONSIVE (E3.0 / E3.3)
+   DESIGN TOKENS & VARIABLES GLOBALES (E3.3)
+   ========================================================================== */
+:root {
+    /* Paleta de Colores Futuristas (Cybersecurity & Sci-Fi) */
+    --color-primary: #0a0f1d;       /* Fondo Oscuro Profundo / Espacial */
+    --color-secondary: #00f0ff;     /* Azul Neón / Eléctrico (Tecnología) */
+    --color-accent: #39ff14;        /* Verde Neón / Ciberseguridad (Éxito/Acción) */
+    --color-bg-dark: #111827;       /* Fondo de Tarjetas Gris Carbón */
+    --color-bg-light: #080c14;      /* Fondo General del Body */
+    --color-text-light: #e2e8f0;    /* Texto Principal Platino/Blanco */
+    
+    /* Tipografía y Fuentes */
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* Espaciados y Layout (Consistencia Visual) */
+    --space-sm: 0.5rem;             /* 8px */
+    --space-md: 1rem;               /* 16px */
+    --space-lg: 2rem;               /* 32px */
+    --border-radius: 12px;          /* Curvatura moderna para un look de software */
+}
+
+/* ==========================================================================
+   RESET & ESTILOS BASE GENERALES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-bg-light);
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ==========================================================================
+   ESTILOS DE COMPONENTES & LAYOUT RESPONSIVE
    ========================================================================== */
 
-/* Barra de Navegación */
+/* Barra de Navegación (Translúcida e Independiente) */
 .main-header {
-    background-color: var(--color-primary);
+    background-color: rgba(10, 15, 29, 0.9);
+    backdrop-filter: blur(10px);
     padding: var(--space-md) var(--space-lg);
     position: sticky;
     top: 0;
     z-index: 1000;
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -17,147 +65,206 @@
     max-width: 1200px;
     margin: 0 auto;
 }
+
 .logo {
-    color: var(--color-text-light);
+    color: var(--color-secondary);
     font-size: 1.5rem;
     font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
 }
+
 .nav-links {
     display: flex;
     list-style: none;
     gap: var(--space-md);
     align-items: center;
 }
+
 .nav-links a {
     color: var(--color-text-light);
     text-decoration: none;
-    transition: color 0.3s;
-}
-.nav-links a:hover {
-    color: var(--color-accent);
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
-/* Sección Hero (Impacto Principal) */
+.nav-links a:hover {
+    color: var(--color-secondary);
+    text-shadow: 0 0 8px var(--color-secondary);
+}
+
+/* Sección Hero (Imagen protectora + Relleno Superior de Seguridad) */
 .hero {
-    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1200') no-repeat center center/cover;
-    min-height: 60vh;
+    background: linear-gradient(rgba(10, 15, 29, 0.85), rgba(8, 12, 20, 0.95)), 
+                url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1200') no-repeat center center/cover;
+    min-height: 65vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: var(--space-lg);
-    color: var(--color-text-light);
+    padding: 6rem var(--space-lg) 4rem var(--space-lg); /* 6rem arriba evita el traslape */
+    width: 100%;
 }
+
 .hero-content h1 {
     font-size: 2.2rem;
     margin-bottom: var(--space-md);
-}
-.hero-content p {
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin: 0 auto var(--space-lg);
+    line-height: 1.3;
+    color: #ffffff;
 }
 
-/* Botones del Sistema */
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-lg);
+    color: #94a3b8;
+}
+
+/* Botón de Acción Principal (Estilo Neón Vacío) */
 .btn-primary {
-    background-color: var(--color-accent);
-    color: var(--color-text-light);
+    background-color: transparent;
+    color: var(--color-accent);
+    border: 2px solid var(--color-accent);
     padding: 0.75rem 1.5rem;
     border-radius: var(--border-radius);
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
-    transition: transform 0.2s, background 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.2);
 }
+
 .btn-primary:hover {
-    background-color: #e0640f;
+    background-color: var(--color-accent);
+    color: #000000;
+    box-shadow: 0 0 20px var(--color-accent);
     transform: translateY(-2px);
 }
 
-/* Sección de Planes / Kits de Cámaras */
+/* Tarjetas de Planes */
 .planes-section, .contacto-section {
     padding: var(--space-lg) var(--space-md);
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
 }
+
 .planes-container {
     display: grid;
-    grid-template-columns: 1fr; /* Mobile-First: Una sola columna en celulares */
+    grid-template-columns: 1fr; /* Mobile-First: Una columna */
     gap: var(--space-lg);
     margin-top: var(--space-lg);
 }
+
 .plan-card {
-    background: white;
+    background: var(--color-bg-dark);
     padding: var(--space-lg);
     border-radius: var(--border-radius);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e2e8f0;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, border 0.3s;
 }
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    border: 1px solid rgba(0, 240, 255, 0.3);
+}
+
 .plan-card.highlight {
-    border: 2px solid var(--color-secondary);
-    position: relative;
+    border: 1px solid var(--color-secondary);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
 }
+
 .price {
     font-size: 1.75rem;
     color: var(--color-secondary);
     font-weight: bold;
     margin: var(--space-md) 0;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
 }
+
 .plan-card ul {
     list-style: none;
     text-align: left;
     margin-bottom: var(--space-md);
+    color: #cbd5e1;
 }
 
-/* Formulario de Cotización */
+.plan-card ul li {
+    margin-bottom: var(--space-sm);
+}
+
+/* Contenedor del Formulario */
 .form-container {
-    background: white;
+    background: var(--color-bg-dark);
     max-width: 600px;
     margin: 0 auto;
     padding: var(--space-lg);
     border-radius: var(--border-radius);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
 }
+
 .form-group {
     text-align: left;
     margin-bottom: var(--space-md);
 }
+
 .form-group label {
     display: block;
     margin-bottom: var(--space-sm);
     font-weight: 600;
+    color: var(--color-secondary);
 }
+
+/* Campos de entrada Tecnológicos */
 .form-group input, .form-group select {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #cbd5e1;
+    background-color: rgba(8, 12, 20, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: var(--border-radius);
     font-family: inherit;
+    color: #ffffff;
+    transition: border 0.3s, box-shadow 0.3s;
 }
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border: 1px solid var(--color-secondary);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+/* BOTÓN DE ENVIAR (Estilizado y Sólido en la Tarjeta) */
 .btn-submit {
     width: 100%;
-    background-color: var(--color-secondary);
-    color: white;
+    background: linear-gradient(135deg, var(--color-secondary), #1d4ed8);
+    color: #ffffff;
     border: none;
-    padding: 0.75rem;
-    font-size: 1rem;
+    padding: 0.85rem;
+    font-size: 1.1rem;
     font-weight: bold;
     border-radius: var(--border-radius);
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: var(--space-md);
 }
+
 .btn-submit:hover {
-    background-color: #1d4ed8;
+    background: linear-gradient(135deg, #00c8ff, #1e40af);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+    transform: scale(1.01);
 }
+
 .hidden { display: none; }
 
 /* ==========================================================================
-   MEDIA QUERIES (Optimización Responsive para Computadoras)
+   MEDIA QUERIES (Computadoras y Pantallas Grandes)
    ========================================================================== */
 @media (min-width: 768px) {
     .hero-content h1 { font-size: 3rem; }
+    .hero { padding-top: 7rem; }
     .planes-container {
-        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas/grandes */
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en PC */
     }
 }

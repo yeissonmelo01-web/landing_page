@@ -1,42 +1,163 @@
 /* ==========================================================================
-   DESIGN TOKENS & VARIABLES GLOBALES (E3.3)
+   ESTILOS DE COMPONENTES & LAYOUT REPSONSIVE (E3.0 / E3.3)
    ========================================================================== */
-:root {
-    /* Paleta de Colores (Identidad de Seguridad Corporativa) */
-    --color-primary: #0f172a;       /* Azul Pizarra Oscuro (Confianza y Estabilidad) */
-    --color-secondary: #2563eb;     /* Azul Tecnológico (Modernidad y Conectividad) */
-    --color-accent: #f97316;        /* Naranja de Seguridad (Llamadas a la acción / Alerta) */
-    --color-bg-light: #f8fafc;      /* Fondo Claro para secciones limpias */
-    --color-text-dark: #1e293b;     /* Texto Principal de alta legibilidad */
-    --color-text-light: #ffffff;    /* Texto Secundario para fondos oscuros */
 
-    /* Tipografía y Fuentes */
-    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-    /* Espaciados y Layout (Consistencia Visual) */
-    --space-sm: 0.5rem;             /* 8px */
-    --space-md: 1rem;               /* 16px */
-    --space-lg: 2rem;               /* 32px */
-    --border-radius: 8px;           /* Curvatura estándar para botones y tarjetas */
+/* Barra de Navegación */
+.main-header {
+    background-color: var(--color-primary);
+    padding: var(--space-md) var(--space-lg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.logo {
+    color: var(--color-text-light);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: var(--space-md);
+    align-items: center;
+}
+.nav-links a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.nav-links a:hover {
+    color: var(--color-accent);
+}
+
+/* Sección Hero (Impacto Principal) */
+.hero {
+    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?q=80&w=1200') no-repeat center center/cover;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-lg);
+    color: var(--color-text-light);
+}
+.hero-content h1 {
+    font-size: 2.2rem;
+    margin-bottom: var(--space-md);
+}
+.hero-content p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto var(--space-lg);
+}
+
+/* Botones del Sistema */
+.btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-text-light);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: transform 0.2s, background 0.3s;
+}
+.btn-primary:hover {
+    background-color: #e0640f;
+    transform: translateY(-2px);
+}
+
+/* Sección de Planes / Kits de Cámaras */
+.planes-section, .contacto-section {
+    padding: var(--space-lg) var(--space-md);
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+.planes-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile-First: Una sola columna en celulares */
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+}
+.plan-card {
+    background: white;
+    padding: var(--space-lg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+}
+.plan-card.highlight {
+    border: 2px solid var(--color-secondary);
+    position: relative;
+}
+.price {
+    font-size: 1.75rem;
+    color: var(--color-secondary);
+    font-weight: bold;
+    margin: var(--space-md) 0;
+}
+.plan-card ul {
+    list-style: none;
+    text-align: left;
+    margin-bottom: var(--space-md);
+}
+
+/* Formulario de Cotización */
+.form-container {
+    background: white;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--space-lg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+.form-group {
+    text-align: left;
+    margin-bottom: var(--space-md);
+}
+.form-group label {
+    display: block;
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+}
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #cbd5e1;
+    border-radius: var(--border-radius);
+    font-family: inherit;
+}
+.btn-submit {
+    width: 100%;
+    background-color: var(--color-secondary);
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.btn-submit:hover {
+    background-color: #1d4ed8;
+}
+.hidden { display: none; }
 
 /* ==========================================================================
-   RESET & ESTILOS BASE
+   MEDIA QUERIES (Optimización Responsive para Computadoras)
    ========================================================================== */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: var(--font-main);
-    background-color: var(--color-bg-light);
-    color: var(--color-text-dark);
-    line-height: 1.6;
-}
-
-img {
-    max-width: 100%;
-    display: block;
+@media (min-width: 768px) {
+    .hero-content h1 { font-size: 3rem; }
+    .planes-container {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas medianas/grandes */
+    }
 }

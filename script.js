@@ -10,7 +10,7 @@
     const formulario = document.getElementById('form-cotizacion');
     const mensajeExito = document.getElementById('mensaje-exito');
 
-    // 2. CONFIGURACIÓN DE NAMESPACES EN LOCALSTORAGE (Requisito E3.2)
+    // 2. CONFIGURACIÓN DE NAMESPACES EN LOCALSTORAGE
     const STORAGE_KEY = 'securecam_form_data';
     const USER_STATE_KEY = 'securecam_user_converted';
 
@@ -18,6 +18,9 @@
     function init() {
         console.log("🔒 SecureCam Core inicializado correctamente...");
         
+        // Registro del Service Worker para convertir en PWA
+        registrarServiceWorker();
+
         if (comprobarEstadoUsuarioConvertido()) {
             mostrarMensajeDeAgradecimientoDirecto();
         } else if (formulario) {
@@ -32,7 +35,23 @@
         formulario.addEventListener('submit', manejarEnvioFormulario);
     }
 
-    // 5. LÓGICA DE PERSISTENCIA (AUTOGUARDADO)
+    // 5. REGISTRO DEL SERVICE WORKER (Requisito de PWA - Rutas relativas para GitHub Pages)
+    function registrarServiceWorker() {
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                // El './sw.js' es clave para que no busque en la raíz del host de GitHub
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => {
+                        console.log('✓ Service Worker registrado exitosamente en el scope:', reg.scope);
+                    })
+                    .catch(err => {
+                        console.warn('✗ No se pudo registrar el Service Worker:', err);
+                    });
+            });
+        }
+    }
+
+    // 6. LÓGICA DE PERSISTENCIA (AUTOGUARDADO)
     function guardarDatosEnTiempoReal() {
         const datosFormulario = {
             nombre: document.getElementById('nombre').value,
@@ -57,7 +76,7 @@
         }
     }
 
-    // 6. CONTROL DE ESTADO DE CONVERSIÓN
+    // 7. CONTROL DE ESTADO DE CONVERSIÓN
     function comprobarEstadoUsuarioConvertido() {
         return localStorage.getItem(USER_STATE_KEY) === 'true';
     }
@@ -146,7 +165,7 @@
 
             // Limpieza estándar de campos físicos tras el envío
             formulario.reset();
-        }).catch(error => {
+        }).then(null, error => {
             console.error("Error simulado en la red, aplicando contingencia de éxito local:", error);
             // Contingencia para que funcione de manera local antes de configurar el backend real:
             localStorage.setItem(USER_STATE_KEY, 'true');

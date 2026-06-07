@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0f1d">
+    <link rel="manifest" href="./manifest.json">
+    
     <title>SecureCam - Monitoreo Inteligente y Cámaras de Seguridad</title>
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,6 +17,7 @@
             <div class="logo">🔒 SecureCam</div>
             <ul class="nav-links">
                 <li><a href="#planes">Kits y Planes</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
                 <li><a href="#contacto" class="btn-nav">Cotizar Ahora</a></li>
             </ul>
         </nav>
@@ -33,22 +38,73 @@
             <h2>Nuestros Kits de Seguridad Disponibles</h2>
             <div class="planes-container">
                 <div class="plan-card">
-                    <h3>Kit Hogar Seguro</h3>
-                    <p class="price">Desde $350.000</p>
-                    <ul>
-                        <li>2 Cámaras Full HD Internas/Externas</li>
-                        <li>Grabador DVR con 1TB de almacenamiento</li>
-                        <li>Configuración en Celular y Monitoreo en Vivo</li>
-                    </ul>
+                    <div>
+                        <h3>Kit Hogar Seguro</h3>
+                        <p class="price">Desde $350.000</p>
+                        <ul>
+                            <li>2 Cámaras Full HD Internas/Externas</li>
+                            <li>Grabador DVR con 1TB de almacenamiento</li>
+                            <li>Configuración en Celular y Monitoreo en Vivo</li>
+                        </ul>
+                    </div>
+                    <button onclick="seleccionarPlan('hogar')" class="btn-primary" style="width: 100%; font-size: 0.9rem; margin-top: 1rem; text-align: center;">Seleccionar Kit</button>
                 </div>
                 <div class="plan-card highlight">
-                    <h3>Kit Negocio Protegido</h3>
-                    <p class="price">Desde $650.000</p>
-                    <ul>
-                        <li>4 Cámaras IP de Alta Resolución (Visión Nocturna)</li>
-                        <li>Grabador NVR con 2TB de almacenamiento</li>
-                        <li>Alertas de movimiento inteligentes al celular</li>
-                    </ul>
+                    <div>
+                        <h3>Kit Negocio Protegido</h3>
+                        <p class="price">Desde $650.000</p>
+                        <ul>
+                            <li>4 Cámaras IP de Alta Resolución (Visión Nocturna)</li>
+                            <li>Grabador NVR con 2TB de almacenamiento</li>
+                            <li>Alertas de movimiento inteligentes al celular</li>
+                        </ul>
+                    </div>
+                    <button onclick="seleccionarPlan('negocio')" class="btn-primary" style="width: 100%; font-size: 0.9rem; margin-top: 1rem; text-align: center; background-color: var(--color-secondary); color: #000000; border-color: var(--color-secondary); box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);">Seleccionar Kit</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonios" class="testimonios-section">
+            <h2>Clientes que confían en SecureCam</h2>
+            <div class="testimonios-container">
+                <div class="testimonio-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonio-texto">"La instalación del Kit Hogar Seguro fue impecable. El técnico configuró los celulares de toda mi familia y la definición en la noche es espectacular. Totalmente recomendados."</p>
+                    </div>
+                    <div class="testimonio-autor">
+                        <div class="autor-avatar">CP</div>
+                        <div class="autor-info">
+                            <h4>Camila Pinto</h4>
+                            <span>Hogar Protegido</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonio-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonio-texto">"Instalamos el Kit Negocio Protegido en nuestra distribuidora y ha sido la mejor inversión. Las notificaciones inteligentes de movimiento llegan al instante y todo funciona de forma muy fluida."</p>
+                    </div>
+                    <div class="testimonio-autor">
+                        <div class="autor-avatar">AH</div>
+                        <div class="autor-info">
+                            <h4>Andrés Herrera</h4>
+                            <span>Propietario de Local</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonio-card">
+                    <div>
+                        <div class="stars">★★★★★</div>
+                        <p class="testimonio-texto">"Excelente atención al cliente y seriedad. El asesoramiento técnico inicial fue clave para diseñar el sistema y la cotización se ajustó perfectamente a nuestro presupuesto corporativo."</p>
+                    </div>
+                    <div class="testimonio-autor">
+                        <div class="autor-avatar">JM</div>
+                        <div class="autor-info">
+                            <h4>Jorge Mendoza</h4>
+                            <span>Administrador de Operaciones</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -83,7 +139,7 @@
             </div>
         </section>
     </main>
+
     <script src="script.js"></script>
-    
 </body>
 </html>

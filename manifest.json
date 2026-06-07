@@ -1,0 +1,20 @@
+{
+  "name": "SecureCam Monitoreo Inteligente",
+  "short_name": "SecureCam",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#080c14",
+  "theme_color": "#0a0f1d",
+  "icons": [
+    {
+      "src": "./icono-192.png.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "./icono-512.png.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
